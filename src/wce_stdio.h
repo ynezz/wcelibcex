@@ -48,6 +48,10 @@
 extern "C" {
 #endif  /* __cplusplus */
 
+#ifndef BUFSIZ
+#define BUFSIZ 512
+#endif
+
 #ifndef L_tmpnam
 #define L_tmpnam MAX_PATH
 #endif
@@ -63,6 +67,7 @@ UINT wceex_GetTempFileNameA(LPCSTR lpPathName, LPCSTR lpPrefixString, UINT uUniq
 DWORD wceex_GetTempPathA(DWORD ccBuffer, LPSTR lpszBuffer);
 FILE * wceex_tmpfile(void);
 char * wceex_tmpnam(char * result);
+void wceex_perror(const char *msg);
 
 
 #ifdef __cplusplus
